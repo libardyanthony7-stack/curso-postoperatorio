@@ -158,6 +158,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .btn{width:100%}
 }
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','996198486716359');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=996198486716359&ev=PageView&noscript=1" alt=""></noscript>
 </head>
 <body>
 
@@ -367,6 +373,9 @@ document.querySelectorAll(".pcard").forEach(function(c, i){
 var buyHref = CHECKOUT[idx + 1] || WA;
 document.querySelectorAll(".js-buy").forEach(function(a){ a.href = buyHref; a.target = "_blank"; a.rel = "noopener"; });
 document.getElementById("waBtn").href = WA;
+document.querySelectorAll(".js-buy").forEach(function(a){ a.addEventListener("click", function(){ try{ fbq("track","InitiateCheckout",{value: idx===0?250:350, currency:"USD", content_name:"Curso Virtual de Postoperatorio"}); }catch(e){} }); });
+document.getElementById("waBtn").addEventListener("click", function(){ try{ fbq("track","Contact"); }catch(e){} });
+
 function pad(n){ return String(n).padStart(2,"0"); }
 function tick(){
   var ms = Math.max(0, CLASS_AT - Date.now()), s = Math.floor(ms/1000);
