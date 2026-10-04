@@ -157,6 +157,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .learn{grid-template-columns:minmax(0,1fr)}
   .btn{width:100%}
 }
+.payhelp{max-width:760px;margin:28px auto 0;padding:22px 26px;border:1.5px solid var(--line);border-radius:16px;background:var(--card);text-align:left}
+.payhelp b{display:block;font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:19px;color:var(--gold-hi);letter-spacing:.02em;margin-bottom:6px}
+.payhelp p{color:var(--muted);font-size:15px}
+.payhelp ol{margin:10px 0 0;padding-left:22px;color:var(--muted);font-size:15px}
+.payhelp li{margin:4px 0}
+.payhelp a{color:var(--gold-hi);text-decoration:underline}
 </style>
 <!-- Meta Pixel -->
 <script>
@@ -184,6 +190,7 @@ fbq('init','996198486716359');fbq('track','PageView');
         <div class="price"><small id="heroLabel">Precio especial hasta el 23 de octubre</small><b id="heroPrice">$250</b><s>Valor regular $450</s></div>
         <a class="btn js-buy" href="#precios">Quiero inscribirme</a>
       </div>
+      <p class="offer-note">Pago con tarjeta, PayPal o transferencia. <a href="#pago" style="color:var(--gold-hi)">¿Tu tarjeta fue rechazada?</a></p>
     </div>
     <div class="hero-photo"><img src="jenny-retrato.jpg" alt="Jenny Briggs, cosmiatra" width="1000" height="1234"></div>
   </div>
@@ -256,6 +263,15 @@ fbq('init','996198486716359');fbq('track','PageView');
       <p class="regular">Valor regular del curso: <s>$450</s></p>
       <p class="ends" id="ends"></p>
       <div class="cta-row"><a class="btn js-buy" href="#precios">Inscribirme al precio de hoy</a></div>
+      <div class="payhelp" id="pago">
+        <b>¿Tu tarjeta fue rechazada?</b>
+        <p>El pago se procesa desde el exterior, y muchos bancos bloquean las compras internacionales por internet. Tienes tres opciones:</p>
+        <ol>
+          <li>Activa las compras internacionales o en línea desde la app de tu banco (o llamándolos) y vuelve a intentarlo.</li>
+          <li>Paga con PayPal, en la misma página de pago.</li>
+          <li>Paga por transferencia: <a class="js-paywa" href="https://wa.me/593964026582" target="_blank" rel="noopener">escríbenos por WhatsApp</a> y te enviamos los datos.</li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -392,6 +408,7 @@ function tick(){
 tick(); setInterval(tick, 1000);
 var vids = document.querySelectorAll(".tcard video");
 vids.forEach(function(v){ v.addEventListener("play", function(){ vids.forEach(function(o){ if (o !== v) o.pause(); }); }); });
+document.querySelectorAll(".js-paywa").forEach(function(a){ a.href = "https://wa.me/593964026582?text=" + encodeURIComponent("Hola, quiero inscribirme al curso POSTOPERATORIO 360° y pagar por transferencia."); a.addEventListener("click", function(){ try{ fbq("track","Contact",{content_name:"Pago por transferencia"}); }catch(e){} }); });
 </script>
 
 </body>
