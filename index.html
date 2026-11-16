@@ -13,7 +13,8 @@
 <meta name="theme-color" content="#0D0C0B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="jenny-cabina-1.jpg">
+<link rel="preload" as="image" href="jenny-hero-movil.jpg" media="(max-width:860px)">
+<link rel="preload" as="image" href="jenny-hero.jpg" media="(min-width:861px)">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Pinyon+Script&display=swap">
 <style>
 :root{
@@ -31,6 +32,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:var(--top);-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;overflow-x:hidden}
 img,video{max-width:100%;display:block}
+img{height:auto}
 a{color:inherit}
 h1,h2,h3{font-family:var(--display);font-weight:600;text-transform:uppercase;line-height:1.06;letter-spacing:.01em;margin:0;text-wrap:balance}
 p{margin:0}
@@ -69,8 +71,8 @@ ul,ol{margin:0;padding:0}
 .logo .role{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
 
 /* 4.2 Hero */
-.hero{position:relative;padding-top:var(--top);background:radial-gradient(60% 60% at 80% 30%,rgba(201,165,92,.16),transparent 60%),linear-gradient(180deg,#151311,var(--bg))}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:48px;align-items:center;min-height:min(760px,calc(100vh - var(--top)))}
+.hero{position:relative;overflow:hidden;padding-top:var(--top);background:#0b0a09}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,600px);align-items:center;min-height:min(780px,calc(100vh - var(--top)))}
 .hero-copy{padding-block:48px 64px}
 .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--gold);border-radius:999px;color:var(--gold-hi);font-size:13px;font-weight:700;letter-spacing:.04em;background:rgba(201,165,92,.08)}
 .badge i{width:7px;height:7px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 0 0 rgba(235,212,154,.7);animation:pulse 2s infinite}
@@ -95,15 +97,11 @@ ul,ol{margin:0;padding:0}
 .trust li{display:flex;align-items:center;gap:6px}
 .trust svg{width:15px;height:15px;stroke:var(--gold);flex:none}
 .trust a{color:var(--gold-hi)}
-.hero-photo{position:relative;align-self:stretch;display:flex;align-items:center}
-.hero-photo .frame{position:relative;width:100%;border-radius:24px;overflow:hidden;border:1px solid var(--line);aspect-ratio:900/1043}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.hero-photo .frame::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(180deg,transparent,rgba(13,12,11,.75))}
-.hero-photo .tag{position:absolute;left:16px;bottom:16px;z-index:2;font-size:13px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px}
-.hero-photo .tag i{width:8px;height:8px;border-radius:50%;background:#e04848}
-.corner{position:absolute;width:56px;height:56px;border-color:var(--gold);border-style:solid;opacity:.8;z-index:2}
-.corner.tl{top:-10px;left:-10px;border-width:1.5px 0 0 1.5px;border-radius:14px 0 0 0}
-.corner.br{bottom:-10px;right:-10px;border-width:0 1.5px 1.5px 0;border-radius:0 0 14px 0}
+.hero-photo{position:absolute;inset:0;z-index:0}
+.hero-photo picture,.hero-photo img{display:block;width:100%;height:100%}
+.hero-photo img{object-fit:cover;object-position:72% 22%}
+.hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(11,10,9,.92) 0%,rgba(11,10,9,.7) 32%,rgba(11,10,9,0) 52%),linear-gradient(0deg,var(--bg) 0%,rgba(13,12,11,0) 22%)}
+@media (min-width:861px) and (max-width:1366px){.hero-photo img{object-position:90% 22%}.hero .wrap{grid-template-columns:minmax(0,540px)}}
 
 /* 4.3 Authority */
 .auth{border-block:1px solid var(--line-soft);background:var(--bg-2)}
@@ -315,19 +313,18 @@ footer a:hover{color:var(--gold-hi)}
 }
 @media (max-width:860px){
   :root{--top:86px}
+  .hero{background:var(--bg)}
   .hero .wrap{grid-template-columns:minmax(0,1fr);gap:0;min-height:0}
-  .hero-photo{order:-1;margin-inline:-20px}
-  .hero-photo .frame{border-radius:0;border:0;aspect-ratio:auto;height:min(42vh,300px)}
-  .hero-photo img{object-position:50% 18%}
-  .hero-photo .frame::after{height:55%;background:linear-gradient(180deg,transparent,var(--bg))}
-  .corner{display:none}
-  .hero-photo .tag{left:20px;bottom:10px}
-  .hero-copy{padding-block:0 52px;margin-top:-6px;position:relative;z-index:2}
+  .hero-photo{position:relative;inset:auto;aspect-ratio:900/750;max-height:480px}
+  .hero-photo img{object-position:60% 0}
+  .hero-photo::after{background:linear-gradient(180deg,rgba(13,12,11,0) 72%,var(--bg) 98%)}
+  .hero-copy{padding-block:0 52px;margin-top:-52px;position:relative;z-index:2}
   .auth ul{grid-template-columns:repeat(2,minmax(0,1fr))}
   .auth li:nth-child(3){border-left:0}
   .auth li:nth-child(n+3){border-top:1px solid var(--line-soft)}
   .forwho,.steps,.teacher{grid-template-columns:minmax(0,1fr)}
-  .teacher .portrait{max-width:420px;margin:0 auto;width:100%}
+  .teacher .portrait{max-width:280px;margin:0 auto;width:100%}
+  .teacher .portrait img{aspect-ratio:1000/1234;object-position:50% 0}
   .methods ul{grid-template-columns:repeat(3,minmax(0,1fr))}
   .mbar{display:flex}
   body{padding-bottom:76px}
@@ -335,11 +332,17 @@ footer a:hover{color:var(--gold-hi)}
 @media (max-width:600px){
   :root{--top:84px}
   .wrap{padding-inline:16px}
-  .hero-photo{margin-inline:-16px}
-  .hero-photo .frame{height:min(22vh,150px)}
+
   .tzline{font-size:11.5px;margin-top:6px}
   .offer .price small{display:none}
-  .hero-photo .tag{display:none}
+  .hero-copy .badge{display:none}
+  .hero-copy .facts{align-self:stretch;gap:2px 12px}
+  .hero-copy .facts li{font-size:13.5px}
+  .hero-copy .lede{font-size:14px}
+  .hero-copy{display:flex;flex-direction:column;align-items:flex-start}
+  .hero-copy .offer{order:1;align-self:stretch}
+  .hero-copy .tzline{order:2;margin-top:12px}
+  .hero-copy .trust{order:3}
   .bar{height:50px}
   .logo .sig{font-size:26px}
   .logo .role{display:none}
@@ -415,6 +418,12 @@ fbq('init','996198486716359');fbq('track','PageView');
 
 <!-- 4.2 Hero -->
 <header class="hero" id="inicio">
+  <div class="hero-photo">
+    <picture>
+      <source media="(max-width:860px)" srcset="jenny-hero-movil.jpg" width="900" height="750">
+      <img src="jenny-hero.jpg" alt="Retrato de la cosmiatra Jenny Briggs" width="1672" height="941" fetchpriority="high">
+    </picture>
+  </div>
   <div class="wrap">
     <div class="hero-copy">
       <span class="badge"><i aria-hidden="true"></i><span>Nueva edición · Inicia el <span data-start-short>lunes 7 de diciembre</span></span></span>
@@ -443,14 +452,6 @@ fbq('init','996198486716359');fbq('track','PageView');
         <li><svg aria-hidden="true"><use href="#i-shield"/></svg>Garantía de 7 días</li>
         <li><svg aria-hidden="true"><use href="#i-award"/></svg>Certificado digital</li>
       </ul>
-    </div>
-    <div class="hero-photo">
-      <span class="corner tl" aria-hidden="true"></span>
-      <div class="frame">
-        <img src="jenny-cabina-1.jpg" alt="Jenny Briggs realizando un tratamiento postoperatorio a una paciente en su cabina" width="900" height="1043" fetchpriority="high">
-        <span class="tag"><i aria-hidden="true"></i>Casos reales frente a la cámara</span>
-      </div>
-      <span class="corner br" aria-hidden="true"></span>
     </div>
   </div>
 </header>
