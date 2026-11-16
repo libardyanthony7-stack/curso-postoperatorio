@@ -130,7 +130,7 @@ ul,ol{margin:0;padding:0}
 .topic.star p{color:#DCD3C4;font-size:16px}
 
 /* 4.6 Gallery */
-.gallery{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:48px}
+.gallery{display:grid;grid-template-columns:minmax(0,1fr);max-width:620px;margin:48px auto 0}
 .gallery figure{margin:0;position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
 .gallery img{width:100%;height:100%;object-fit:cover}
 .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 16px;background:linear-gradient(180deg,transparent,rgba(13,12,11,.85));font-size:14px;font-weight:600}
@@ -539,7 +539,6 @@ fbq('init','996198486716359');fbq('track','PageView');
       <h2 id="t-gal" class="rv">Así se ven las clases</h2>
       <!-- Faltan más fotos/clips de clase. Nombres sugeridos: clase-1.jpg, clase-2.jpg (o clips cortos clase-1.mp4). -->
       <div class="gallery">
-        <figure class="g1 rv"><img src="jenny-cabina-2.jpg" alt="Jenny Briggs trabajando con guantes sobre el abdomen de una paciente en postoperatorio" width="900" height="1600" loading="lazy" decoding="async" style="object-position:50% 70%"><figcaption>La técnica, de cerca y paso a paso</figcaption></figure>
         <figure class="g2 rv"><img src="jenny-cabina-1.jpg" alt="Jenny Briggs aplicando un tratamiento manual a una paciente" width="900" height="1043" loading="lazy" decoding="async"><figcaption>Pacientes reales, no modelos</figcaption></figure>
       </div>
       <p class="quote-line rv"><strong>No son diapositivas:</strong> ves la técnica aplicada paso a paso y preguntas en el momento.</p>
