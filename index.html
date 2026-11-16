@@ -288,6 +288,13 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 18px}
 footer a{text-decoration:none}
 footer a:hover{color:var(--gold-hi)}
 
+/* Inscripciones cerradas */
+.closed-note{margin:18px auto 0;max-width:30em;text-align:center;color:var(--gold-hi);font-weight:700}
+.offer .closed-note,.stack .closed-note,.mbar .closed-note{margin:0;text-align:left;font-size:14px;flex:1}
+.closed .count,.closed #precios,.closed #pago,.closed #finalMeta,.closed .trust{display:none}
+.closed .btn.js-next{background:transparent;color:var(--text);border:1.5px solid rgba(37,211,102,.6);box-shadow:none}
+.closed .btn.js-next svg{fill:var(--wa)}
+
 /* Reveal on scroll */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .js .rv.in{opacity:1;transform:none}
@@ -411,7 +418,7 @@ fbq('init','996198486716359');fbq('track','PageView');
       <p class="lede">Aprende a acompañar cada etapa de la recuperación con criterio y seguridad: inflamación, fibrosis, fajas, aparatología y nutrición.</p>
       <ul class="facts">
         <li><svg aria-hidden="true"><use href="#i-cal"/></svg><span data-start-short>Lunes 7 de diciembre</span></li>
-        <li><svg aria-hidden="true"><use href="#i-clock"/></svg><span><span data-start-time>2:00 pm</span> Ecuador</span></li>
+        <li><svg aria-hidden="true"><use href="#i-clock"/></svg><span><span data-start-range>2:00 a 4:00 pm</span> Ecuador</span></li>
         <li><svg aria-hidden="true"><use href="#i-cam"/></svg>5 clases prácticas en vivo por Zoom</li>
       </ul>
       <div class="offer">
@@ -709,7 +716,7 @@ fbq('init','996198486716359');fbq('track','PageView');
       <ol class="steps">
         <li class="card rv"><b>Te inscribes</b><p>Pagas en la página segura de Hotmart con el precio vigente.</p></li>
         <li class="card rv"><b>Recibes tu acceso</b><p>Te llega un correo de confirmación y entras al grupo de WhatsApp de alumnas.</p></li>
-        <li class="card rv"><b>Empiezas el <span data-start-day>lunes 7 de diciembre</span></b><p>La primera clase en vivo por Zoom es a las <span data-start-time>2:00 pm</span>, hora de Ecuador.</p></li>
+        <li class="card rv"><b>Empiezas el <span data-start-day>lunes 7 de diciembre</span></b><p>A las <span data-start-time>2:00 pm</span> (hora de Ecuador), en vivo por Zoom.</p></li>
       </ol>
     </div>
   </section>
@@ -735,8 +742,8 @@ fbq('init','996198486716359');fbq('track','PageView');
       <div class="faq">
         <details><summary>¿Cómo puedo pagar?</summary><div><p>En Hotmart con tarjeta de crédito o débito, PayPal o Google Pay. También puedes dividir el pago entre dos tarjetas o pagar por transferencia escribiéndonos por WhatsApp.</p></div></details>
         <details><summary>Mi tarjeta fue rechazada, ¿qué hago?</summary><div><p>Activa las compras internacionales en la app de tu banco, prueba con PayPal o <a href="#pago" style="color:var(--gold-hi)">paga por transferencia</a>.</p></div></details>
-        <details><summary>¿Cuántas clases son?</summary><div><p>Son 5 clases prácticas en vivo por Zoom, con casos reales: Jenny trabaja con pacientes frente a la cámara. La primera es el <span data-start-full>lunes 7 de diciembre a las 2:00 pm</span> (hora de Ecuador) y las fechas de las demás se comparten en el grupo de alumnas.</p></div></details>
-        <details><summary>¿Qué hora es en mi país?</summary><div><p>Primera clase, <span data-start-day>lunes 7 de diciembre</span>:</p><table class="tz" id="tz"><tbody></tbody></table></div></details>
+        <details><summary>¿Cuántas clases son?</summary><div><p>Son 5 clases prácticas en vivo por Zoom, con casos reales: Jenny trabaja con pacientes frente a la cámara. La primera es el <span data-start-full>lunes 7 de diciembre, de 2:00 a 4:00 pm</span> (hora de Ecuador). Las fechas de las clases 2 a 5 se comunican en el grupo de WhatsApp de alumnas.</p></div></details>
+        <details><summary>¿Qué hora es en mi país?</summary><div><p>Primera clase, <span data-start-day>lunes 7 de diciembre</span>, de <span data-start-range>2:00 a 4:00 pm</span> hora de Ecuador:</p><table class="tz" id="tz"><tbody></tbody></table></div></details>
         <!-- [POR DEFINIR] ¿Las clases quedan grabadas? ¿Por cuánto tiempo? Descomentar cuando esté confirmado:
         <details><summary>¿Las clases quedan grabadas?</summary><div><p>…</p></div></details>
         -->
@@ -755,13 +762,14 @@ fbq('init','996198486716359');fbq('track','PageView');
     <div class="wrap">
       <p class="eyebrow">Últimos días</p>
       <h2 id="t-count" class="rv">El curso empieza en</h2>
+      <p class="closed-note" hidden>Inscripciones cerradas – escríbenos por WhatsApp para la próxima edición.</p>
       <div class="count" role="timer" aria-live="off">
         <div><b id="cd-d">--</b><span>Días</span></div>
         <div><b id="cd-h">--</b><span>Horas</span></div>
         <div><b id="cd-m">--</b><span>Min</span></div>
         <div><b id="cd-s">--</b><span>Seg</span></div>
       </div>
-      <p class="final-meta">Primera clase: <span data-start-full>lunes 7 de diciembre, 2:00 pm</span> hora de Ecuador · 5 clases en vivo por Zoom</p>
+      <p class="final-meta" id="finalMeta">Primera clase: <span data-start-full>lunes 7 de diciembre, 2:00 pm</span> hora de Ecuador · 5 clases en vivo por Zoom</p>
       <div class="price"><small data-stage-label>Precio especial</small><div class="row"><b data-price>$250</b><s data-regular>$450</s></div><em data-deadline></em></div>
       <div class="cta-row" style="margin-top:28px">
         <a class="btn js-buy" href="#precios">Quiero inscribirme</a>
@@ -794,17 +802,16 @@ fbq('init','996198486716359');fbq('track','PageView');
 /* =====================================================================
    CONFIGURACIÓN DE LA EDICIÓN — cambiar solo aquí.
    Fechas en hora de Ecuador (UTC−5).
-   ⚠ [POR DEFINIR] Hora de la primera clase, etapas, montos, fechas límite
-     y códigos off= de Hotmart. Los valores de abajo son PROVISIONALES
-     (copiados de la edición de octubre) hasta que se confirmen.
+   Edición diciembre 2026 · datos confirmados.
    ===================================================================== */
 const CONFIG = {
-  inicio: '2026-12-07T14:00:00-05:00',          // [POR DEFINIR] hora real de la primera clase
+  inicio: '2026-12-07T14:00:00-05:00',   // primera clase (también cierra inscripciones)
+  fin:    '2026-12-07T16:00:00-05:00',   // fin de la primera clase
   etapas: [
-    { nombre: 'Precio especial', precio: 250, hasta: '2026-11-29T23:59:59-05:00', link: 'https://pay.hotmart.com/S107854722E?off=sb1q2axy' }, // [POR DEFINIR] monto, fecha y off=
-    { nombre: 'Preventa',        precio: 350, hasta: '2026-12-07T14:00:00-05:00', link: 'https://pay.hotmart.com/S107854722E?off=yzigghby' }  // [POR DEFINIR] monto, fecha y off=
+    { nombre: 'Precio especial', precio: 250, hasta: '2026-12-02T23:59:59-05:00', link: 'https://pay.hotmart.com/S107854722E?off=sb1q2axy' },
+    { nombre: 'Preventa',        precio: 350, hasta: '2026-12-07T14:00:00-05:00', link: 'https://pay.hotmart.com/S107854722E?off=yzigghby' }
   ],
-  regular: 450,                                  // [POR DEFINIR] valor regular tachado
+  regular: 450,
   whatsapp: '593964026582',
   producto: 'Postoperatorio 360 Dic'
 };
@@ -833,16 +840,20 @@ const CONFIG = {
   var cap = function(s){ return s.charAt(0).toUpperCase() + s.slice(1); };
   var money = function(n){ return '$' + n; };
 
+  var END = new Date(CONFIG.fin || CONFIG.inicio).getTime();
   var startDay = dayLong(START), startTime = timeStr(START);
+  var startRange = startTime.replace(/ (am|pm)$/, '') + ' a ' + timeStr(END);
   $('[data-start-short]').forEach(function(el, i){ el.textContent = el.closest('.facts') ? cap(startDay) : startDay; });
   setAll('[data-start-day]', startDay);
   setAll('[data-start-time]', startTime);
-  setAll('[data-start-full]', startDay + ', ' + startTime);
+  setAll('[data-start-range]', startRange);
+  setAll('[data-start-full]', startDay + ', de ' + startRange);
 
   /* Precio vigente */
-  var deadlineTxt = idx < stages.length - 1 || cur.end < START
-    ? 'Hasta el ' + dayLong(cur.end - 1000)
-    : 'Hasta el inicio del curso';
+  var next = stages[idx + 1];
+  var deadlineTxt = next
+    ? 'Solo hasta el ' + dayLong(cur.end - 1000) + '. Desde el ' + fmt(cur.end + 1000, { day: 'numeric' }) + ' sube a ' + money(next.precio) + '.'
+    : 'Hasta el inicio del curso: ' + startDay + ', ' + startTime + '.';
   setAll('[data-price]', money(cur.precio));
   setAll('[data-regular]', money(CONFIG.regular));
   setAll('[data-stage-label]', cur.nombre + ' · precio de hoy');
@@ -870,6 +881,26 @@ const CONFIG = {
       (i === idx ? '<a class="btn js-buy" href="#">Inscribirme a ' + money(e.precio) + '</a>' : '') + '</div>';
   }).join('');
 
+  /* Inscripciones cerradas: desde el inicio de la primera clase */
+  var CLOSED = now() >= START;
+  if (CLOSED){
+    document.documentElement.classList.add('closed');
+    var waNext = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent('Hola, quiero información de la próxima edición del curso POSTOPERATORIO 360°.');
+    $('.js-buy').forEach(function(a){
+      a.classList.remove('js-buy'); a.classList.add('js-wa', 'js-next');
+      a.innerHTML = '<svg aria-hidden="true"><use href="#i-wa"/></svg>' + (a.closest('.bar') ? 'WhatsApp' : 'Escríbenos por WhatsApp');
+      a.href = waNext;
+    });
+    $('.closed-note').forEach(function(el){ el.hidden = false; });
+    $('.offer .price, .stack .foot .price, .final .price, .mbar .p').forEach(function(el){
+      var n = document.createElement('p'); n.className = 'closed-note';
+      n.textContent = 'Inscripciones cerradas – escríbenos por WhatsApp para la próxima edición.';
+      el.replaceWith(n);
+    });
+    $('.mbar .wa-b').forEach(function(el){ el.remove(); });
+    document.getElementById('t-count').textContent = 'Inscripciones cerradas';
+  }
+
   /* Botones de compra + píxel */
   $('.js-buy').forEach(function(a){
     a.href = buyUrl; a.target = '_blank'; a.rel = 'noopener';
@@ -882,24 +913,23 @@ const CONFIG = {
   var waTransfer = 'Hola, quiero inscribirme al curso POSTOPERATORIO 360° (' + startDay + ') y pagar por transferencia.';
   $('.js-wa').forEach(function(a){
     var transfer = a.dataset.wa === 'transfer';
-    a.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(transfer ? waTransfer : waMsg);
+    if (!a.classList.contains('js-next')) a.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(transfer ? waTransfer : waMsg);
     a.addEventListener('click', function(){ try { fbq('track', 'Contact', transfer ? { content_name: 'Pago por transferencia' } : {}); } catch(e){} });
   });
 
   /* Tabla de horarios (calculada con la zona horaria real de cada país) */
   var zones = [
-    ['Ecuador, Colombia y Perú', 'America/Guayaquil'],
-    ['México (CDMX)', 'America/Mexico_City'],
-    ['Miami / Nueva York', 'America/New_York'],
-    ['Venezuela', 'America/Caracas'],
-    ['República Dominicana', 'America/Santo_Domingo'],
-    ['Chile (Santiago)', 'America/Santiago'],
-    ['España (Madrid)', 'Europe/Madrid']
+    ['Ecuador, Colombia, Perú, Panamá y Miami', 'America/Guayaquil'],
+    ['México (CDMX), Guatemala y Costa Rica', 'America/Mexico_City'],
+    ['Venezuela, Rep. Dominicana, Puerto Rico y Bolivia', 'America/Caracas'],
+    ['Chile y Argentina', 'America/Argentina/Buenos_Aires'],
+    ['España', 'Europe/Madrid']
   ];
   var tzBody = document.querySelector('#tz tbody');
   var mine = Intl.DateTimeFormat().resolvedOptions().timeZone;
   var rows = zones.map(function(z){ return '<tr><td>' + z[0] + '</td><td>' + timeStr(START, z[1]) + (fmt(START,{day:'numeric'}) !== new Intl.DateTimeFormat('es-EC',{timeZone:z[1],day:'numeric'}).format(START) ? ' (día siguiente)' : '') + '</td></tr>'; });
-  if (mine && !zones.some(function(z){ return z[1] === mine; })){
+  var listed = ['America/Guayaquil','America/Bogota','America/Lima','America/Panama','America/New_York','America/Mexico_City','America/Guatemala','America/Costa_Rica','America/Caracas','America/Santo_Domingo','America/Puerto_Rico','America/La_Paz','America/Santiago','America/Argentina/Buenos_Aires','Europe/Madrid'];
+  if (mine && listed.indexOf(mine) === -1){
     rows.push('<tr class="me"><td>Tu hora local</td><td>' + timeStr(START, mine) + '</td></tr>');
   }
   tzBody.innerHTML = rows.join('');
@@ -917,10 +947,10 @@ const CONFIG = {
     var left = Math.max(0, Math.floor((cur.end - t) / 1000));
     var txt = Math.floor(left / 86400) + 'd ' + pad(Math.floor(left % 86400 / 3600)) + 'h ' + pad(Math.floor(left % 3600 / 60)) + 'm';
     if (s <= 0){
-      strip.innerHTML = 'El curso ya comenzó · Escríbenos por WhatsApp para la próxima edición';
+      strip.innerHTML = 'Inscripciones cerradas – escríbenos por WhatsApp para la próxima edición';
       ends.textContent = '';
     } else if (idx < stages.length - 1){
-      strip.innerHTML = cur.nombre + ' de ' + money(cur.precio) + ' termina en <b>' + txt + '</b>';
+      strip.innerHTML = 'El precio de ' + money(cur.precio) + ' termina en <b>' + txt + '</b>';
       ends.textContent = 'El precio de ' + money(cur.precio) + ' termina en ' + txt + ' · luego sube a ' + money(stages[idx + 1].precio);
     } else {
       strip.innerHTML = 'Nueva edición · El curso empieza en <b>' + txt + '</b>';
