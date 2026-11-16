@@ -143,13 +143,6 @@ p{margin:0}
 .count span{color:var(--muted);font-size:14px}
 .final-meta{text-align:center;margin-top:22px;font-weight:600}
 
-.bridge-sec{padding-block:56px}
-.bridge{display:flex;align-items:center;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;max-width:860px;margin:0 auto;padding:26px 28px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
-.bridge small{display:block;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-.bridge b{display:block;font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.02em;margin-top:4px;line-height:1.2}
-.bridge p{color:var(--muted);font-size:15px;margin-top:6px;max-width:34em}
-.bridge a.link{font-weight:700;color:var(--gold-hi);text-decoration:none;border-bottom:1px solid var(--line);white-space:nowrap}
-
 footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
 footer a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--line)}
@@ -187,7 +180,6 @@ footer a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--li
 @media (max-width:480px){
   .who{grid-template-columns:minmax(0,1fr)}
   .btn{width:100%}
-  .bridge{padding:22px 20px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -221,10 +213,9 @@ fbq('init','996198486716359');fbq('track','PageView');
       <p class="note js-live">Te unes al grupo de WhatsApp de la clase y ahí recibes el link de Zoom el mismo día. Cupos limitados.</p>
       <div class="ended-box js-ended" hidden>
         <p class="t">Esta clase ya terminó</p>
-        <p>Gracias por tu interés. Si quieres aprender el protocolo completo, el curso POSTOPERATORIO 360° inicia el <span data-t="cursoFecha">lunes 7 de diciembre</span>.</p>
+        <p>Gracias por tu interés. Si tienes dudas, escríbenos por WhatsApp.</p>
         <div class="cta-row">
-          <a class="btn js-curso" href="#">Ver el curso</a>
-          <a class="btn outline js-wa" href="#">Escribir por WhatsApp</a>
+          <a class="btn js-wa" href="#">Escribir por WhatsApp</a>
         </div>
       </div>
       <p class="byline"><b>Jenny Briggs</b> · Cosmiatra</p>
@@ -275,7 +266,7 @@ fbq('init','996198486716359');fbq('track','PageView');
         <div class="sig">Jenny Briggs</div>
         <div class="years"><b>7</b><span>años de trayectoria en cosmiatría</span></div>
         <p><strong>Cosmiatra en Guayaquil.</strong> Durante 7 años ha acompañado en su cabina a pacientes en recuperación postoperatoria, desde los primeros días de inflamación hasta el tratamiento de la fibrosis.</p>
-        <p>En esta clase gratuita comparte parte del protocolo que enseña en su curso POSTOPERATORIO 360°.</p>
+        <p>En esta clase gratuita comparte lo que aplica en su cabina para detectar a tiempo las complicaciones más comunes.</p>
         <a class="handle js-ig" href="#">@ctra_jennybriggs en Instagram</a>
       </div>
       <div class="photos">
@@ -329,18 +320,6 @@ fbq('init','996198486716359');fbq('track','PageView');
     </div>
   </section>
 
-  <section class="bridge-sec" aria-label="El curso completo">
-    <div class="wrap">
-      <div class="bridge">
-        <div>
-          <small>¿Quieres ir más allá?</small>
-          <b>Esta clase es una muestra del curso POSTOPERATORIO 360°</b>
-          <p>El curso completo inicia el <span data-t="cursoFecha">lunes 7 de diciembre</span>.</p>
-        </div>
-        <a class="link js-curso" href="#">Conocer el curso →</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -356,8 +335,6 @@ const CONFIG = {
   inicio: '2026-11-26T14:00:00-05:00',
   grupo: 'https://chat.whatsapp.com/IsCR2g8oKoe65aQboj0vsl',
   whatsapp: '593964026582',
-  curso: 'https://curso.ctrajennybriggs.com/',
-  cursoFecha: 'lunes 7 de diciembre, a las 2:00 pm (Ecuador)',
   instagram: 'https://www.instagram.com/ctra_jennybriggs/',
   pixel: '996198486716359'
 };
@@ -391,8 +368,7 @@ const CONFIG = {
     var T = {
       fecha: cap(p.weekday) + ' ' + p.day + ' de ' + p.month,
       diaCorto: p.weekday + ' ' + p.day,
-      hora: hora(p),
-      cursoFecha: CONFIG.cursoFecha
+      hora: hora(p)
     };
     document.querySelectorAll('[data-t]').forEach(function(el){ if (T[el.dataset.t]) el.textContent = T[el.dataset.t]; });
 
@@ -430,7 +406,6 @@ const CONFIG = {
   }
   wire('.js-join', GROUP, 'Lead', {content_name: CONFIG.clase});
   wire('.js-wa', WA, 'Contact');
-  wire('.js-curso', CONFIG.curso, 'ViewContent', {content_name: 'POSTOPERATORIO 360°'});
   wire('.js-ig', CONFIG.instagram);
 
   /* From the start time on: hide sign-up, countdown and sticky bar; show "Esta clase ya terminó". */
